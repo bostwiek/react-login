@@ -1,0 +1,177 @@
+/* DOM */
+
+/*
+main purple: #7c1af0
+dark purple: #5c0abd
+*/
+
+body {
+  background-color: #ffffff;
+  min-height: 100%;
+  text-align: center;
+}
+a {
+	cursor: pointer !important;
+	color: #7c1af0;
+}
+a:hover {
+	color: #5c0abd;
+}
+
+/* Containers and Wrappers */
+
+.col-left, .col-right {
+	position: relative;
+	min-height: 100vh;
+}
+.col-left {
+	z-index: 100;
+}
+
+.logo-container {
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	box-shadow: inset 5px 5px 16px #e9d7ff;
+	text-align: center;
+	font-weight: bold;
+	font-family: monospace;
+	font-size: 38px;
+	line-height: 60px;
+	color: #7c1af0;
+	margin-bottom: 15px;
+}
+.login-container, .signup-container {
+	width: 85%;
+	max-width: 320px;
+	margin: 60px auto 0;
+}
+.header-container {
+	padding: 35px 0 45px;
+}
+
+/* FORM */
+
+.form-container {
+	margin: 15px auto;
+	text-align: left;
+}
+.form-container h3 {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #7c1af0;
+}
+.login-container input.email, .login-container input.password {
+	display: block;
+	width: 100%;
+	font-size: 1.2em;
+	transition: all 0.2s ease-in-out;
+}
+.input-wrapper {
+	padding: 10px 0 0;
+}
+.form-container input:focus {
+	outline-width: 0 !important;
+}
+
+.form-control {
+	color: #7c1af0;
+	border: none;
+	border-bottom: 1px solid #e9d7ff;
+}
+label {
+	margin-bottom: 5px !important;
+}
+
+.input-height {
+	padding-bottom: 30px;
+}
+.input-wrapper {
+	position: relative;
+}
+
+.sub-text {
+	width: 100%;
+	font-size: 0.8em;
+	color: #7c1af0;
+	padding-left: 5px;
+}
+.sub-text a {
+	font-weight: bold;
+	color: #7c1af0
+}
+.create-account, .login-account {
+	text-align: left;
+	margin: 20px 0;
+}
+.checkbox {
+	margin-right: 6px;
+}
+.no-select {
+	user-select: none;
+}
+
+.login-icon {
+	position: absolute;
+	bottom: 14px;
+	right: 8px;
+	display: block;
+	max-height: 18px;
+	background-size: cover;
+}
+.mail-icon {
+	width: 18px;
+}
+
+button.btn-login, button.btn-signup {
+	width: 100%;
+	font-size: 1.3em;
+	line-height: 30px;
+	padding: 10px 0 12px;
+	color: #ffffff;
+	background-color: #7c1af0;
+	border-color: #5c0abd;
+	opacity: 1;
+}
+button.btn-login:hover, button.btn-signup:hover,
+button.btn-login:focus, button.btn-signup:focus,
+button.btn-login:active, button.btn-signup:active {
+	background-color: #5c0abd;
+}
+.login-container button.btn-disabled, .signup-container button.btn-disabled {
+	color: #7c1af0;
+	background-color: #ffffff;
+	border-color: #7c1af0;
+	opacity: 0.5;
+}
+#remember-label {
+	cursor: pointer;
+}
+
+/* Dashboard */
+
+.height-container {
+	height: 50px;
+}
+
+/* Background */
+
+.illustration {
+	position: fixed;
+	right: 0;
+	width: 100%;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-size: 70% auto;
+}
+
+/* Viewports */
+
+@media (max-width: 574px) {
+	.col-right {
+		display: none !important;
+	}
+}
