@@ -1,9 +1,4 @@
-## A collection of projects I make whilst I learn:
+## A simple login app, built using:
 ### `react`
-### `ajax`
-### `express`
-### `nodemon`
+### `react-transition-group`
 ### `bootstrap`
-### `webpack`
-### `sass`
-### `babel`
