@@ -1,5 +1,4 @@
 import React from 'react'
-import Logo from './Logo'
 
 class SignupForm extends React.Component {
 
@@ -22,25 +21,25 @@ class SignupForm extends React.Component {
 			let passwordRetypeVerify = false;
 			let termsVerify = false;
 
-			if (this.state.email == '') {
+			if (this.state.email === '') {
 				document.getElementById('email').style.borderBottomColor = 'red';
 			} else {
 				emailVerify = true;
 			}
-			if (this.state.password == false) {
+			if (this.state.password === false) {
 				document.getElementById('password').style.borderBottomColor = 'red';				
 			} else {
 				passwordVerify = true;
 			}
-			if (this.state.passwordRetype == false) {
+			if (this.state.passwordRetype === false) {
 				document.getElementById('password-retype').style.borderBottomColor = 'red';				
 			} else {
 				passwordRetypeVerify = true;
 			}
-			if (!this.state.terms == false) {
+			if (!this.state.terms === false) {
 				termsVerify = true;
 			}
-			if (emailVerify == true && passwordVerify == true && passwordRetypeVerify == true && termsVerify == true) {
+			if (emailVerify === true && passwordVerify === true && passwordRetypeVerify === true && termsVerify === true) {
 				// register user !!!need to check if passwords match still!!!
 				alert("Your account has been successfully registered!");
 				pageChange('login');
@@ -54,11 +53,15 @@ class SignupForm extends React.Component {
 			let borderColor = '';
 			let btnSignup = document.getElementById('btn-signup');
 
-			if(typedText.includes('@')) {
+			if(
+				(typedText.includes('@')) &&
+				(typedText.includes('.')) &&
+				(typedText.length > 4)
+			) {
 				borderColor = 'green';
 				this.setState({email: typedText})
-				// remove btn-disabled from login-btn if this.state.password == true
-				if (this.state.password == true && this.state.passwordRetype == true && this.state.terms == true) {
+				// remove btn-disabled from login-btn if this.state.password === true
+				if (this.state.password === true && this.state.passwordRetype === true && this.state.terms === true) {
 					if(btnSignup.classList.contains('btn-disabled')) {
 						btnSignup.classList.remove('btn-disabled');
 					}
@@ -83,8 +86,8 @@ class SignupForm extends React.Component {
 			if(typedText.length > 7) {
 				borderColor = 'green';
 				this.setState({password: true});
-				// remove btn-disabled from login-btn if this.state.email != ''
-				if (this.state.email != '' && this.state.passwordRetype == true && this.state.terms == true) {
+				// remove btn-disabled from login-btn if this.state.email !== ''
+				if (this.state.email !== '' && this.state.passwordRetype === true && this.state.terms === true) {
 					if(btnSignup.classList.contains('btn-disabled')) {
 						btnSignup.classList.remove('btn-disabled')
 					}
@@ -110,8 +113,8 @@ class SignupForm extends React.Component {
 			if(typedText.length > 7) {
 				borderColor = 'green';
 				this.setState({passwordRetype: true});
-				// remove btn-disabled from login-btn if this.state.email != ''
-				if (this.state.email != '' && this.state.password == true && this.state.terms == true) {
+				// remove btn-disabled from login-btn if this.state.email !== ''
+				if (this.state.email !== '' && this.state.password === true && this.state.terms === true) {
 					if(btnSignup.classList.contains('btn-disabled')) {
 						btnSignup.classList.remove('btn-disabled')
 					}
@@ -135,8 +138,8 @@ class SignupForm extends React.Component {
 			
 			this.setState({terms: checkboxState});
 
-			if (checkboxState == true) {
-				if (this.state.email != '' && this.state.password == true && this.state.passwordRetype == true) {
+			if (checkboxState === true) {
+				if (this.state.email !== '' && this.state.password === true && this.state.passwordRetype === true) {
 					if(btnSignup.classList.contains('btn-disabled')) {
 						btnSignup.classList.remove('btn-disabled')
 					}

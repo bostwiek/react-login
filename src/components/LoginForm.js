@@ -23,17 +23,17 @@ class LoginForm extends React.Component {
 			let emailVerify = false;
 			let passwordVerify = false;
 
-			if (this.state.email == '') {
+			if (this.state.email === '') {
 				document.getElementById('email').style.borderBottomColor = 'red';
 			} else {
 				emailVerify = true;
 			}
-			if (this.state.password == false) {
+			if (this.state.password === false) {
 				document.getElementById('password').style.borderBottomColor = 'red';				
 			} else {
 				passwordVerify = true;
 			}
-			if (emailVerify == true && passwordVerify == true) {
+			if (emailVerify === true && passwordVerify === true) {
 				this.props.pageChange('dashboard');
 			}
 			
@@ -45,11 +45,15 @@ class LoginForm extends React.Component {
 			let borderColor = '';
 			let btnLogin = document.getElementById('btn-login');
 
-			if(typedText.includes('@')) {
+			if(
+				(typedText.includes('@')) &&
+				(typedText.includes('.')) &&
+				(typedText.length > 4)
+			) {
 				borderColor = 'green';
 				this.setState({email: typedText})
-				// remove btn-disabled from login-btn if this.state.password == true
-				if (this.state.password == true) {
+				// remove btn-disabled from login-btn if this.state.password === true
+				if (this.state.password === true) {
 					if(btnLogin.classList.contains('btn-disabled')) {
 						btnLogin.classList.remove('btn-disabled');
 					}
@@ -74,8 +78,8 @@ class LoginForm extends React.Component {
 			if(typedText.length > 7) {
 				borderColor = 'green';
 				this.setState({password: true});
-				// remove btn-disabled from login-btn if this.state.email != ''
-				if (this.state.email != '') {
+				// remove btn-disabled from login-btn if this.state.email !== ''
+				if (this.state.email !== '') {
 					if(btnLogin.classList.contains('btn-disabled')) {
 						btnLogin.classList.remove('btn-disabled')
 					}
@@ -114,14 +118,14 @@ class LoginForm extends React.Component {
 					<div className="form-group">
 						<div className="input-wrapper">
 							<input type="email" className="form-control email" id="email" placeholder="Email address" autoComplete="off" onChange={checkEmail} />
-							<img className="login-icon mail-icon" src={MailIcon} />
+							<img className="login-icon mail-icon" src={MailIcon} alt="mail icon" />
 						</div>
 					</div>
 
 					<div className="form-group">
 						<div className="input-wrapper">
 							<input type="password" className="form-control password" id="password" placeholder="Password" onChange={checkPassword} />
-							<img className="login-icon lock-icon" src={LockIcon} />
+							<img className="login-icon lock-icon" src={LockIcon} alt="password icon" />
 						</div>					
 					</div>
 

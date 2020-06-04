@@ -4,24 +4,11 @@ import Logo from './Logo'
 
 class Dashboard extends React.Component {
 
-	state = {
-		name: '<name>',
-		nameMissing: 'Erm... what was your name again?'
-	}
-
 	render() {
 
 		const pageChange = (x) => {
 			this.props.pageChange(x)
 		}
-
-		const updateName = e => {
-			this.setState({
-				name: e.target.value,
-				nameMissing: ''
-			});
-		}
-
 		return(
 			
       <div className="container-fluid">
@@ -33,15 +20,7 @@ class Dashboard extends React.Component {
 							<Logo />
 							
 							<div>
-								<h3>Welcome to your Dashboard, {this.state.name}!</h3>
-								<div className="height-container">{this.state.nameMissing}</div>
-					
-								<div className="form-group">
-									<div className="input-wrapper">
-										<label htmlFor="name">Name: </label>
-										<input type="name" className="form-control name" id="name" placeholder="Richard Cheese" autoComplete="off" onChange={updateName} />
-									</div>
-								</div>
+								<h3>Welcome to your Dashboard!</h3>
 
 								<br /><br /><br />
 								<a href="#" onClick={() => pageChange('login')}>Back to login page</a>

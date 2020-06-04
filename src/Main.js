@@ -17,7 +17,6 @@ import Illustration from './images/a.jpg'
 
 		- Add animations between pages
 		- Push form information to dashboard (maybe go back and tie in registration)
-		- remove alerts, replace with css pseudoclass display toggles, or alert containers
 		- clean up code, remove self-comments and add maintenance direction comments
 
 */
@@ -63,7 +62,11 @@ class Main extends React.Component {
 				case 'dashboard':
 					return <Dashboard backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
 					break;
+
+				case 'default':
+					break;
 				}
+
 
 		}
 
