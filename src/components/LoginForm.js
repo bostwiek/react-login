@@ -44,12 +44,9 @@ class LoginForm extends React.Component {
 			let typedText = e.target.value;
 			let borderColor = '';
 			let btnLogin = document.getElementById('btn-login');
+			let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-			if(
-				(typedText.includes('@')) &&
-				(typedText.includes('.')) &&
-				(typedText.length > 4)
-			) {
+			if(typedText.match(emailFormat)) {
 				borderColor = 'green';
 				this.setState({email: typedText})
 				// remove btn-disabled from login-btn if this.state.password === true

@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
 							
 							<Logo />
 							
-							<div>
+							<div className="dashboard-container">
 								<h3>Welcome to your Dashboard!</h3>
 
 								<br /><br /><br />

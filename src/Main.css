@@ -1,8 +1,8 @@
 /* DOM */
 
 /*
-main purple: #7c1af0
-dark purple: #5c0abd
+	main purple: #7c1af0
+	dark purple: #5c0abd
 */
 
 body {
@@ -150,6 +150,9 @@ button.btn-login:active, button.btn-signup:active {
 
 /* Dashboard */
 
+.dashboard-container {
+	padding: 40px 0 20px;
+}
 .height-container {
 	height: 50px;
 }

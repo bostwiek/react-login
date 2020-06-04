@@ -63,7 +63,7 @@ class Main extends React.Component {
 					return <Dashboard backgroundImg={backgroundImg} pageChange={this.pageChange} showPage={this.state.showPage} email={this.state.email} />
 					break;
 
-				case 'default':
+				default:
 					break;
 				}
 

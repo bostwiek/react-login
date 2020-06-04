@@ -19,6 +19,7 @@ class SignupForm extends React.Component {
 			let emailVerify = false;
 			let passwordVerify = false;
 			let passwordRetypeVerify = false;
+			let passwordsMatch = false;
 			let termsVerify = false;
 
 			if (this.state.email === '') {
@@ -35,11 +36,16 @@ class SignupForm extends React.Component {
 				document.getElementById('password-retype').style.borderBottomColor = 'red';				
 			} else {
 				passwordRetypeVerify = true;
+				passwordsMatch = (document.getElementById('password').value === document.getElementById('password-retype').value);
+			}
+			if(passwordsMatch === false) {
+				alert('Passwords do not match...')
+				document.getElementById('password-retype').style.borderBottomColor = 'red';			
 			}
 			if (!this.state.terms === false) {
 				termsVerify = true;
 			}
-			if (emailVerify === true && passwordVerify === true && passwordRetypeVerify === true && termsVerify === true) {
+			if (emailVerify === true && passwordVerify === true && passwordRetypeVerify === true && passwordsMatch === true && termsVerify === true) {
 				// register user !!!need to check if passwords match still!!!
 				alert("Your account has been successfully registered!");
 				pageChange('login');
@@ -52,12 +58,9 @@ class SignupForm extends React.Component {
 			let typedText = e.target.value;
 			let borderColor = '';
 			let btnSignup = document.getElementById('btn-signup');
+			let emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-			if(
-				(typedText.includes('@')) &&
-				(typedText.includes('.')) &&
-				(typedText.length > 4)
-			) {
+			if(typedText.match(emailFormat)) {
 				borderColor = 'green';
 				this.setState({email: typedText})
 				// remove btn-disabled from login-btn if this.state.password === true
@@ -156,9 +159,7 @@ class SignupForm extends React.Component {
 		}
 
 
-
 		/* ---------- */
-
 
 
 		return(
@@ -216,7 +217,3 @@ class SignupForm extends React.Component {
 }
 
 export default SignupForm;
-
-function inputChange() {
-	document.getElementById('password').style.boxShadow = '';
-}
