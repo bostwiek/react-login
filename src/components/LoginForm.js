@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
 				if(emailVerify === true) {
 					this.setState({
 						error: true,
-						errorMessage: 'Enter a valid password'
+						errorMessage: 'Password must be at least 8 characters in length'
 					});
 				}
 				document.getElementById('password').style.borderBottomColor = 'red';				
@@ -106,7 +106,7 @@ class LoginForm extends React.Component {
 				this.setState({
 					password: false,
 					error: true,
-					errorMessage: 'Enter a valid email password'
+					errorMessage: 'Password must be at least 8 characters in length'
 				})
 				// add btn-disabled if not already appended to login-btn
 				if(!btnLogin.classList.contains('btn-disabled')) {

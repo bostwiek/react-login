@@ -33,7 +33,7 @@ class SignupForm extends React.Component {
 			}
 			if (this.state.password === false) {
 				document.getElementById('password').style.borderBottomColor = 'red';	
-				errorMessage.push('Please enter a valid password');			
+				errorMessage.push('Password must be at least 8 characters in length');			
 			} else {
 				passwordVerify = true;
 			}
