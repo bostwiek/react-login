@@ -23,9 +23,9 @@ class Dashboard extends React.Component {
 								<h3>Welcome to your Dashboard!</h3>
 
 								<br /><br /><br />
-								<a href="#" onClick={() => pageChange('login')}>Back to login page</a>
+								<button onClick={() => pageChange('login')}>Back to login page</button>
 								<br />
-								<a href="#" onClick={() => pageChange('signup')}>Back to signup page</a>
+								<button onClick={() => pageChange('signup')}>Back to signup page</button>
 							</div>
 
 						</div>

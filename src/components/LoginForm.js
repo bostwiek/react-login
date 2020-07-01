@@ -12,7 +12,9 @@ class LoginForm extends React.Component {
 			btn: true,
 			email: '',
 			password: false,
-			rememberLogin: false
+			rememberLogin: false,
+			error: false,
+			errorMessage: ''
 		}
 	}
 
@@ -20,19 +22,33 @@ class LoginForm extends React.Component {
 
 		const btnClicked = () => {
 
+			// Verify email/pw are not blank
 			let emailVerify = false;
 			let passwordVerify = false;
 
 			if (this.state.email === '') {
+				this.setState({
+					error: true,
+					errorMessage: 'Enter a valid email'
+				});
 				document.getElementById('email').style.borderBottomColor = 'red';
+				emailVerify = false;
 			} else {
 				emailVerify = true;
 			}
 			if (this.state.password === false) {
+				if(emailVerify === true) {
+					this.setState({
+						error: true,
+						errorMessage: 'Enter a valid password'
+					});
+				}
 				document.getElementById('password').style.borderBottomColor = 'red';				
 			} else {
 				passwordVerify = true;
 			}
+
+			// Both are verified - swap page to dashboard
 			if (emailVerify === true && passwordVerify === true) {
 				this.props.pageChange('dashboard');
 			}
@@ -57,7 +73,11 @@ class LoginForm extends React.Component {
 				}
 			} else {
 				borderColor = 'red';
-				this.setState({email: ''})
+				this.setState({
+					email: '',
+					error: true,
+					errorMessage: 'Enter a valid email address'
+				})
 				// add btn-disabled if not already appended to login-btn
 				if(!btnLogin.classList.contains('btn-disabled')) {
 					btnLogin.classList.add('btn-disabled')
@@ -83,7 +103,11 @@ class LoginForm extends React.Component {
 				}	
 			} else {
 				borderColor = 'red';
-				this.setState({password: false})
+				this.setState({
+					password: false,
+					error: true,
+					errorMessage: 'Enter a valid email password'
+				})
 				// add btn-disabled if not already appended to login-btn
 				if(!btnLogin.classList.contains('btn-disabled')) {
 					btnLogin.classList.add('btn-disabled')
@@ -149,6 +173,12 @@ class LoginForm extends React.Component {
 
 					</CSSTransition>
 				</div>
+
+				{
+					this.state.error === true &&
+					<div className="error-container">{this.state.errorMessage}</div>
+				}
+				
 
 				<div className="sub-text create-account">
 					<a onClick={() => {pageChange('signup')}}>Don't have an account?  Create an account</a>

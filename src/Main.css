@@ -147,6 +147,29 @@ button.btn-login:active, button.btn-signup:active {
 #remember-label {
 	cursor: pointer;
 }
+.error-container {
+	margin: 6px auto;
+	color: red;
+	font-size: 12px;
+	text-align: left;
+}
+.error-container::before {
+	content: '!';
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: red;
+	color: #fff;
+	line-height: 16px;
+	vertical-align: middle;
+	text-align: center;
+	border-radius: 8px;
+	margin-right: 5px;
+}
+.error-container span {
+	line-height: 16px;
+	vertical-align: middle;
+}
 
 /* Dashboard */
 

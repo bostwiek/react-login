@@ -8,7 +8,9 @@ class SignupForm extends React.Component {
 			email: '',
 			password: false,
 			passwordRetype: false,
-			terms: false
+			terms: false,
+			error: false,
+			errorMessage: []
 		}
 	}
 
@@ -21,34 +23,44 @@ class SignupForm extends React.Component {
 			let passwordRetypeVerify = false;
 			let passwordsMatch = false;
 			let termsVerify = false;
+			let errorMessage = [];
 
 			if (this.state.email === '') {
 				document.getElementById('email').style.borderBottomColor = 'red';
+				errorMessage.push('Please enter a valid email address');
 			} else {
 				emailVerify = true;
 			}
 			if (this.state.password === false) {
-				document.getElementById('password').style.borderBottomColor = 'red';				
+				document.getElementById('password').style.borderBottomColor = 'red';	
+				errorMessage.push('Please enter a valid password');			
 			} else {
 				passwordVerify = true;
 			}
 			if (this.state.passwordRetype === false) {
-				document.getElementById('password-retype').style.borderBottomColor = 'red';				
+				document.getElementById('password-retype').style.borderBottomColor = 'red';		
 			} else {
 				passwordRetypeVerify = true;
 				passwordsMatch = (document.getElementById('password').value === document.getElementById('password-retype').value);
 			}
 			if(passwordsMatch === false) {
-				alert('Passwords do not match...')
+				errorMessage.push('Passwords need to match');
 				document.getElementById('password-retype').style.borderBottomColor = 'red';			
 			}
 			if (!this.state.terms === false) {
 				termsVerify = true;
+			} else {
+				errorMessage.push('You need to agree to the Terms & Conditions to register an account');
 			}
 			if (emailVerify === true && passwordVerify === true && passwordRetypeVerify === true && passwordsMatch === true && termsVerify === true) {
 				// register user !!!need to check if passwords match still!!!
 				alert("Your account has been successfully registered!");
 				pageChange('login');
+			} else {
+				this.setState({
+					error: true,
+					errorMessage: errorMessage
+				})
 			}
 			
 		}
@@ -205,6 +217,14 @@ class SignupForm extends React.Component {
 				<div>
 					<button className="btn btn-primary btn-signup btn-disabled" id="btn-signup" onClick={btnClicked}>Sign up</button>
 				</div>
+
+				{this.state.error === true &&
+					<div className="error-container">
+						<span>
+							{this.state.errorMessage[0]}
+						</span>
+					</div>
+				}
 
 				<div className="sub-text login-account">
 					<a onClick={() => {pageChange('login')}}>Already have an account? Log in here</a>
