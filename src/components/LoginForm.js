@@ -121,9 +121,6 @@ class LoginForm extends React.Component {
 		}
 
 
-
-		/* ---------- */
-
 		
 		
 		return(

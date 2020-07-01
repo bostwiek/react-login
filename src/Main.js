@@ -10,18 +10,6 @@ import './Main.css'
 
 import Illustration from './images/a.jpg'
 
-
-/*
-
-	current TO DO list:
-
-		- Add animations between pages
-		- Push form information to dashboard (maybe go back and tie in registration)
-		- clean up code, remove self-comments and add maintenance direction comments
-
-*/
-
-
 class Main extends React.Component {
 
 	constructor() {
@@ -36,6 +24,7 @@ class Main extends React.Component {
 		this.pageChange = this.pageChange.bind(this);
 	}
 
+	// pass this function as props to all children to update page
 	pageChange(x) {
 		this.setState({page: x});
 	}
@@ -49,6 +38,7 @@ class Main extends React.Component {
 
 		const loadPage = () => {
 
+			// check state for current page
 			switch(this.state.page) {
 
 				case 'login':
